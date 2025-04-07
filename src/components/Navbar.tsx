@@ -42,11 +42,7 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img 
-            src="/lovable-uploads/9b15f926-77bc-4ba3-82d0-757bd3829d65.png" 
-            alt="PITELBAC KONE Logo" 
-            className="h-12 md:h-16"
-          />
+          <span className="text-2xl font-bold text-pitelbac-700">PITELBAC KONE</span>
         </Link>
 
         <nav className="hidden md:flex space-x-6 items-center">
@@ -81,14 +77,7 @@ export const Navbar = () => {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-white z-50 md:hidden">
-          <div className="flex justify-between items-center p-4">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-              <img 
-                src="/lovable-uploads/9b15f926-77bc-4ba3-82d0-757bd3829d65.png" 
-                alt="PITELBAC KONE Logo" 
-                className="h-10"
-              />
-            </Link>
+          <div className="flex justify-end p-4">
             <Button
               variant="ghost"
               size="icon"
@@ -98,7 +87,7 @@ export const Navbar = () => {
               <X className="h-6 w-6" />
             </Button>
           </div>
-          <nav className="flex flex-col items-center space-y-6 mt-6">
+          <nav className="flex flex-col items-center space-y-6 mt-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
