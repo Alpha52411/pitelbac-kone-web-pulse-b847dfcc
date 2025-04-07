@@ -1,11 +1,19 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   title: string;
   subtitle: string;
-  imageSrc: string;
+  carouselImages?: string[];
   primaryButtonText?: string;
   primaryButtonLink?: string;
   secondaryButtonText?: string;
@@ -15,21 +23,44 @@ interface HeroProps {
 export const Hero = ({
   title,
   subtitle,
-  imageSrc,
+  carouselImages = [],
   primaryButtonText,
   primaryButtonLink,
   secondaryButtonText,
   secondaryButtonLink,
 }: HeroProps) => {
+  const [currentImage, setCurrentImage] = useState(0);
+  
+  // Auto rotate carousel every 7 seconds
+  useEffect(() => {
+    if (carouselImages.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % carouselImages.length);
+    }, 7000); // 7 seconds
+    
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <div className="relative">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: `url(${imageSrc})` }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50" />
-      </div>
+      {/* Background Image or Carousel */}
+      {carouselImages.length > 0 ? (
+        <div className="absolute inset-0 transition-opacity duration-1000">
+          {carouselImages.map((image, index) => (
+            <div
+              key={index}
+              className="absolute inset-0 bg-center bg-cover transition-opacity duration-1000"
+              style={{ 
+                backgroundImage: `url(${image})`,
+                opacity: index === currentImage ? 1 : 0 
+              }}
+            >
+              <div className="absolute inset-0 bg-black opacity-50" />
+            </div>
+          ))}
+        </div>
+      ) : null}
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-32 pb-24 md:pt-48 md:pb-40 flex flex-col items-center text-center">

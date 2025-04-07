@@ -41,13 +41,24 @@ const Index = () => {
     }
   ];
 
+  // Carousel images
+  const carouselImages = [
+    "/lovable-uploads/2b795743-282d-450b-9283-cc29814e66d0.png", // Car rental service
+    "/lovable-uploads/475d9c87-d417-4462-91b9-49ac0aa12bc0.png", // Flight tracker map
+    "/lovable-uploads/e78416d8-09ff-4c9e-8ce7-fcf80e6b74ed.png", // Private jets
+    "/lovable-uploads/bd0f9c13-0f00-4736-a349-9844fcb82c08.png", // World map with flights
+    "/lovable-uploads/4ca0e03b-58b7-4a71-a993-b943d2401b01.png", // Maritime traffic
+    "/lovable-uploads/58a2f63e-1abe-4d67-8227-d8666df51f4d.png", // English Channel shipping
+    "/lovable-uploads/8229634c-5e31-49fa-9fab-548c58e0c975.png", // Global logistics concept
+  ];
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section with Carousel */}
       <Hero
         title="PITELBAC KONE"
         subtitle="Avec PITECLAC, la satisfaction est au Quotidien !"
-        imageSrc="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80"
+        carouselImages={carouselImages}
         primaryButtonText="Nos Services"
         primaryButtonLink="/services"
         secondaryButtonText="Contactez-nous"
