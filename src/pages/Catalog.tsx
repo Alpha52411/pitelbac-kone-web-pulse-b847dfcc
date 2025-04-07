@@ -11,18 +11,18 @@ import { toast } from "@/components/ui/use-toast";
 const riceProducts = [
   {
     id: 1,
-    name: "Riz Basmati Premium",
-    description: "Riz à grain long parfumé, idéal pour les plats d'accompagnement.",
+    name: "Riz Long Grain RAZ",
+    description: "Riz à grain long de qualité supérieure, 5% brisures. Produit du Pakistan (25kg).",
     price: "15 000 FCFA",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e8c6?auto=format&fit=crop&q=80&w=500",
+    image: "/lovable-uploads/475d5b67-228e-4630-910f-f12733689ddb.png",
     category: "rice"
   },
   {
     id: 2,
-    name: "Riz Jasmin",
-    description: "Riz asiatique parfumé au jasmin, délicieusement aromatique.",
+    name: "Riz Parabolé 5% Brisure",
+    description: "Riz parabolé de haute qualité, disponible en quantité. Parfait pour tous vos plats.",
     price: "12 500 FCFA",
-    image: "https://images.unsplash.com/photo-1586201375813-7d3d3d66552a?auto=format&fit=crop&q=80&w=500",
+    image: "/lovable-uploads/a507a5f5-4242-4408-a7a3-4c1c3be93af4.png",
     category: "rice"
   },
   {
@@ -138,11 +138,11 @@ const Catalog = () => {
                   {filteredProducts.map((product, index) => (
                     <AnimatedSection key={product.id} delay={index * 100}>
                       <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow">
-                        <div className="aspect-video w-full overflow-hidden">
+                        <div className="aspect-video w-full overflow-hidden bg-white">
                           <img 
                             src={product.image} 
                             alt={product.name} 
-                            className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+                            className="w-full h-full object-contain transition-transform hover:scale-105 duration-300"
                           />
                         </div>
                         <CardHeader>
