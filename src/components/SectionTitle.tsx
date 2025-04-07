@@ -28,10 +28,16 @@ export const SectionTitle = ({
           {subtitle}
         </p>
       )}
-      <div className={cn(
-        "h-1 w-20 bg-pitelbac-600 mt-4",
-        center && "mx-auto"
-      )} />
+      <div className="flex items-center mt-4">
+        <div className={cn(
+          "h-1 w-12 bg-yellow-400",
+          center && "mx-auto"
+        )} />
+        <div className={cn(
+          "h-1 w-12 bg-pitelbac-600 ml-1",
+          center && "mx-auto"
+        )} />
+      </div>
     </div>
   );
 };
